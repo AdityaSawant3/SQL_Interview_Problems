@@ -27,10 +27,10 @@ INSERT INTO Project (project_id, employee_id) VALUES
 (2, 4);
 
 -- Write an SQL query that reports the average experience years of all the employees for each project, rounded to 2 digits. (Easy)
-SELECT p.project_id, ROUND(AVG(CAST(e.experience_years AS FLOAT)), 2) AS average_years
+SELECT p.project_id, ROUND(AVG(CAST(e.experience_years AS DECIMAL)), 2) AS average_years
 FROM Employee e
 LEFT JOIN Project p ON e.employee_id = p.employee_id
-WHERE e.experience_years IS NOT NULL
+WHERE p.project_id IS NOT NULL
 GROUP BY p.project_id;
 
 -- Release resources
